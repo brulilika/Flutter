@@ -1,21 +1,22 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'dart:isolate';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
+//Coloca isso no root
+void main() => runApp(ByteBankApp());
+
+class ByteBankApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
         home: Scaffold(
-      appBar: AppBar(
-        title: Text('Transferências'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        child: Icon(Icons.add),
-      ),
-      //Aplicacao de tecnicas de extração de codigos
-      body: ListaTransferencia(),
-    )));
+      body: FormularioTransferencia(),
+    ));
+  }
+}
 
 /*
 Refatorações aplicadas seguindo as boas praticas de programacao
@@ -31,12 +32,21 @@ https://www.alura.com.br/artigos/flutter-diferenca-entre-stateless-e-statefull-w
 class ListaTransferencia extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        ItemTransferencia(Transferencia(100.00, 123)),
-        ItemTransferencia(Transferencia(200.00, 456)),
-        ItemTransferencia(Transferencia(300.00, 789)),
-      ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Transferências'),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {},
+        child: Icon(Icons.add),
+      ),
+      body: Column(
+        children: <Widget>[
+          ItemTransferencia(Transferencia(100.00, 123)),
+          ItemTransferencia(Transferencia(200.00, 456)),
+          ItemTransferencia(Transferencia(300.00, 789)),
+        ],
+      ),
     );
   }
 }
@@ -63,4 +73,63 @@ class Transferencia {
   late final int numeroConta;
 
   Transferencia(this.valor, this.numeroConta);
+}
+
+class FormularioTransferencia extends StatelessWidget {
+  final TextEditingController _numContaController = TextEditingController();
+  final TextEditingController _valorTransController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Nova transferência'),
+      ),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _numContaController,
+              maxLength: 5,
+              keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 16.0),
+              decoration: InputDecoration(
+                  labelText: 'Número da conta',
+                  hintText: '00000',
+                  counterText: ''),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextField(
+              controller: _valorTransController,
+              keyboardType: TextInputType.number,
+              style: TextStyle(fontSize: 16.0),
+              decoration: InputDecoration(
+                  labelText: 'Valor transferência',
+                  hintText: '00,00',
+                  icon: Icon(Icons.monetization_on)),
+            ),
+          ),
+          ElevatedButton(
+              onPressed: () {
+                final int? numeroConta = int.tryParse(_numContaController.text);
+                final double? valor =
+                    double.tryParse(_valorTransController.text);
+                if (numeroConta != null && valor != null) {
+                  final transferenciaCriada = Transferencia(valor, numeroConta);
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                          'Conta: ${transferenciaCriada.numeroConta} Valor: ${transferenciaCriada.valor}'),
+                    ),
+                  );
+                }
+              },
+              child: Text('Confirmar'))
+        ],
+      ),
+    );
+  }
 }
