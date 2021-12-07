@@ -1,16 +1,22 @@
-# bytebank
+# Fundamentos de Flutter - Alura
 
-A new Flutter project.
+Criação do primeiro aplicativo utilizando Flutter -> ByteBank. Aplicativo simples de duas telas para receber o valor de uma conta e um valor para depositar e demonstra os valores inputados em uma lista.
 
-## Getting Started
+## Considerações do curso Bruna Lika
 
-This project is a starting point for a Flutter application.
+Assim como proposto, o curso introduz conceitos iniciais como a widgets e as diferenças entre Stateless e Statefull. Como inciante na linguagem e no framework, foi uma ótima porta de entrada e me manteve motivada e entusiamada para evoluir.
 
-A few resources to get you started if this is your first Flutter project:
+<!---<img src="exemplo-image.png" alt="exemplo imagem"/>--->
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+### Tarefas pendentes
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+A formação conta com 11 cursos principais, junto com materiais complementares.
+Ainda estou em progresso com a formação mas atualmente encontra-se nesse status:
+
+- [ X ] Primeiros passos com o Flutter
+- [ X ] Implementando layout com Widgets
+- [ X ] Criando formulário e refatorando o código
+- [ X ] Utilizando uma lista dinâmica de Widgets
+- [ X ] Utilizando StatefulWidgets
+
+<!--[⬆ Voltar ao topo](#nome-do-projeto)<br>--->
