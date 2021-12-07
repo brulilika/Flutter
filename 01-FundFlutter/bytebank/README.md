@@ -13,10 +13,10 @@ Assim como proposto, o curso introduz conceitos iniciais como a widgets e as dif
 A formação conta com 11 cursos principais, junto com materiais complementares.
 Ainda estou em progresso com a formação mas atualmente encontra-se nesse status:
 
-- [ X ] Primeiros passos com o Flutter
-- [ X ] Implementando layout com Widgets
-- [ X ] Criando formulário e refatorando o código
-- [ X ] Utilizando uma lista dinâmica de Widgets
-- [ X ] Utilizando StatefulWidgets
+- [X] Primeiros passos com o Flutter
+- [X] Implementando layout com Widgets
+- [X] Criando formulário e refatorando o código
+- [X] Utilizando uma lista dinâmica de Widgets
+- [X] Utilizando StatefulWidgets
 
 <!--[⬆ Voltar ao topo](#nome-do-projeto)<br>--->
