@@ -9,7 +9,7 @@ Na Formação Flutter, você vai aprender a construir Apps do zero. Desde entend
 A formação conta com 11 cursos principais, junto com materiais complementares.
 Ainda estou em progresso com a formação mas atualmente encontra-se nesse status:
 
-- [ ] Fundamentos de Flutter: Crie o seu primeiro App
+- [X] Fundamentos de Flutter: Crie o seu primeiro App
 - [ ] Persistência com Flutter: Crie um app com armazenamento interno
 - [ ] Flutter com web API: integrando sua app mobile
 - [ ] Comunicação HTTP: Flutter com web API
