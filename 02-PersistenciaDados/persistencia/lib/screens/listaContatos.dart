@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/screens/novoContato.dart';
 
 class ListaContatos extends StatelessWidget {
   @override
@@ -23,7 +24,10 @@ class ListaContatos extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        onPressed: () => {},
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => NovoContato()));
+        },
       ),
     );
   }
