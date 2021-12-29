@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:persistencia/screens/dashboard.dart';
-import 'package:persistencia/screens/listaContatos.dart';
 
 void main() {
   runApp(const MyApp());

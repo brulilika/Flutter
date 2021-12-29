@@ -41,7 +41,7 @@ class NovoContato extends StatelessWidget {
                         onPressed: () {
                           final String name = _nomeController.text;
                           final String conta = _contaController.text;
-                          final Contato novoContato = Contato(name, conta);
+                          final Contato novoContato = Contato(0, name, conta);
                           Navigator.of(context).pop();
                         },
                         child: Text('Cadastrar')),

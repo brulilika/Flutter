@@ -1,6 +1,7 @@
 class Contato {
-  final String name;
+  final int id;
+  final String nome;
   final String conta;
 
-  Contato(this.name, this.conta);
+  Contato(this.id, this.nome, this.conta);
 }
