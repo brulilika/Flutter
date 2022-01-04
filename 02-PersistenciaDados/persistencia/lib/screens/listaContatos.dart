@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/database/dao/ContatoDao.dart';
 import 'package:persistencia/models/Contato.dart';
 import 'package:persistencia/screens/novoContato.dart';
 import 'package:persistencia/database/app_database.dart';
 
 class ListaContatos extends StatelessWidget {
   final List<Contato> contatos = [];
-
+  final ContatoDao _dao = ContatoDao();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,7 +17,7 @@ class ListaContatos extends StatelessWidget {
       body: FutureBuilder<List<Contato>>(
         initialData: [],
         future: Future.delayed(Duration(seconds: 1))
-            .then((callback) => buscaContato()),
+            .then((callback) => _dao.buscaContato()),
         builder: (context, snapshot) {
           switch (snapshot.connectionState) {
             case ConnectionState.waiting:
