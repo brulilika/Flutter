@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/database/app_database.dart';
 import 'package:persistencia/screens/dashboard.dart';
+
+import 'models/Contato.dart';
 
 void main() {
   runApp(const MyApp());

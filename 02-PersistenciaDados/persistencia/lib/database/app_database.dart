@@ -12,26 +12,29 @@ Future<Database> createDatabase() {
   });
 }
 
-void salvaContato(Contato contato) {
-  createDatabase().then((db) {
+Future<int> salvaContato(Contato contato) {
+  return createDatabase().then((db) {
     final Map<String, dynamic> contatoMap = Map();
     contatoMap['id'] = contato.id;
     contatoMap['nome'] = contato.nome;
     contatoMap['conta'] = contato.conta;
-    db.insert('CONTATOS', contatoMap);
+    return db.insert('CONTATOS', contatoMap);
   });
 }
 
-void buscaContato() {
-  createDatabase().then((db) {
-    db.query('CONTATOS').then((maps) {
-      final List<Contato> listaContatos = <Contato>[];
+Future<List<Contato>> buscaContato() {
+  return createDatabase().then((db) {
+    return db.query('CONTATOS').then((maps) {
+      final List<Contato> contacts = [];
       for (Map<String, dynamic> map in maps) {
-        final Contato novoContato =
-            Contato(map['id'], map['nome'], map['conta']);
-        listaContatos.add(novoContato);
+        final Contato contact = Contato(
+          map['id'],
+          map['nome'],
+          map['conta'],
+        );
+        contacts.add(contact);
       }
-      return listaContatos;
+      return contacts;
     });
   });
 }
