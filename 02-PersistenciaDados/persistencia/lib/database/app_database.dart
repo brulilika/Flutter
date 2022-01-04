@@ -7,9 +7,10 @@ Future<Database> createDatabase() {
     final String path = join(dbPath, 'persistencia.db');
     return openDatabase(path, onCreate: (db, version) {
       db.execute(
-          'CREATE TABLE CONTATOS (id INTEGER PRIMARY KEY, nome TEXT, conta TEXT)');
+          'CREATE TABLE CONTATOS (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT, conta TEXT)');
     }, version: 1);
   });
+  // onDowngrade: onDatabaseDowngradeDelete -> limpeza de banco
 }
 
 Future<int> salvaContato(Contato contato) {

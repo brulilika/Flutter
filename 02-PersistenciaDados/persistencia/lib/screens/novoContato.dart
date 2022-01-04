@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:persistencia/database/app_database.dart';
 import 'package:persistencia/models/Contato.dart';
 
 class NovoContato extends StatelessWidget {
@@ -42,7 +43,8 @@ class NovoContato extends StatelessWidget {
                           final String name = _nomeController.text;
                           final String conta = _contaController.text;
                           final Contato novoContato = Contato(0, name, conta);
-                          Navigator.of(context).pop();
+                          salvaContato(novoContato)
+                              .then((id) => Navigator.of(context).pop());
                         },
                         child: Text('Cadastrar')),
                   )),
